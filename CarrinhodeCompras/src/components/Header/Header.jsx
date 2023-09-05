@@ -12,7 +12,7 @@ const Header = () => {
           <CartButton/>
         </div>
     </header>
-  )
-}
+  );
+};
 
 export default Header;

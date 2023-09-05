@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Products.css';
 import fetchProducts from '../../API/fetchproducts';
 import ProductCard from '../ProductCard/ProductCard';
@@ -12,14 +12,15 @@ const Products = () => {
         fetchProducts('iphone').then((response) => {
             setProducts(response);
         });
-
-
-    }, []);
+    },
+    []);
 
     console.log(products);
   return (
     <section className='products container'>
-        <ProductCard/>
+        {
+          products.map((product) => <ProductCard key={product.id} data={product} />)
+        }
     </section>
 
   );
